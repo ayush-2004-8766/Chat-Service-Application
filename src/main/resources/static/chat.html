@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Friends Chat</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                S
+            </div>
+
+            <div>
+                <h2>Friends</h2>
+                <span>Chat</span>
+            </div>
+
+        </div>
+
+
+        <!-- USER -->
+
+        <div class="user-card">
+
+            <div class="avatar"
+                 id="userAvatar">
+                S
+            </div>
+
+            <div class="user-info">
+
+                <strong id="userName">
+                    User
+                </strong>
+
+                <span>
+                    ● Online
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ROOMS -->
+
+        <div class="rooms-header">
+
+            <h3>Chat Rooms</h3>
+
+            <button
+                    onclick="loadRooms()"
+                    class="refresh-btn"
+                    title="Refresh rooms">
+                ↻
+            </button>
+
+        </div>
+
+
+        <div id="rooms"
+             class="rooms">
+        </div>
+
+
+        <!-- CREATE ROOM -->
+
+        <div class="create-room">
+
+            <input
+                    type="text"
+                    id="roomName"
+                    placeholder="New room name">
+
+            <button onclick="createRoom()">
+                + Create Room
+            </button>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button
+                class="logout-btn"
+                onclick="logout()">
+
+            <span>⇥</span>
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN CHAT ================= -->
+
+    <main class="chat-area">
+
+
+        <!-- CHAT HEADER -->
+
+        <header class="chat-header">
+
+            <div class="room-title">
+
+                <div class="room-icon">
+                    #
+                </div>
+
+                <div>
+
+                    <h2 id="currentRoom">
+                        Select a room
+                    </h2>
+
+                    <span id="connectionStatus">
+                        Connecting...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                        onclick="loadRooms()"
+                        title="Refresh">
+                    ⟳
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- MESSAGES -->
+
+        <section
+                id="messages"
+                class="messages">
+
+            <div class="welcome">
+
+                <div class="welcome-icon">
+                    💬
+                </div>
+
+                <h2>Welcome to Softmint Chat</h2>
+
+                <p>
+                    Select a room and start chatting
+                    in real-time.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE INPUT -->
+
+        <footer class="message-area">
+
+            <div class="message-box">
+
+                <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Type your message..."
+                        autocomplete="off"
+                        onkeydown="handleEnter(event)">
+
+                <button
+                        onclick="sendMessage()"
+                        class="send-btn">
+
+                    <span>Send</span>
+                    ➤
+
+                </button>
+
+            </div>
+
+            <p class="encryption-text">
+                🔒 Messages are transmitted securely
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- ================= SCRIPTS ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
