@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* LEFT */
+
+.auth-left {
+    width: 55%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 70px;
+}
+
+.left-content {
+    position: relative;
+    z-index: 5;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background: white;
+    color: #667eea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.brand h1 {
+    font-size: 28px;
+}
+
+.brand-subtitle {
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.tagline {
+    margin-top: 80px;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.tagline span {
+    color: #ffd166;
+}
+
+.description {
+    margin-top: 25px;
+    max-width: 500px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.features {
+    margin-top: 35px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+    font-size: 16px;
+}
+
+.feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CHAT IMAGE */
+
+.chat-illustration {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+}
+
+.chat-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
+    animation: floatingChat 4s ease-in-out infinite;
+}
+
+@keyframes floatingChat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* BUBBLES */
+
+.floating-bubble {
+    position: absolute;
+    font-size: 30px;
+    z-index: 3;
+    animation: float 3s ease-in-out infinite;
+}
+
+.bubble-one {
+    right: 330px;
+    bottom: 250px;
+}
+
+.bubble-two {
+    right: 100px;
+    bottom: 330px;
+}
+
+.bubble-three {
+    right: 300px;
+    bottom: 70px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* RIGHT */
+
+.auth-right {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f7fb;
+    padding: 30px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.auth-header h2 {
+    font-size: 28px;
+    color: #222;
+}
+
+.auth-header p {
+    margin-top: 8px;
+    color: #777;
+}
+
+.input-group {
+    margin-top: 22px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0 12px;
+}
+
+.input-icon {
+    margin-right: 8px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 14px 5px;
+    font-size: 15px;
+}
+
+.primary-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 22px;
+    color: #777;
+}
+
+.link-btn {
+    border: none;
+    background: none;
+    color: #667eea;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.message {
+    margin-top: 15px;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .auth-page {
+        flex-direction: column;
+    }
+
+    .auth-left,
+    .auth-right {
+        width: 100%;
+    }
+
+    .auth-left {
+        min-height: 500px;
+        padding: 40px;
+    }
+
+    .chat-illustration {
+        width: 200px;
+        height: 200px;
+        right: 20px;
+        bottom: 10px;
+    }
+
+    .tagline {
+        font-size: 32px;
+    }
+
+    .auth-right {
+        padding: 30px 15px;
+    }
+}

@@ -127,6 +127,16 @@ public class SecurityConfig {
                         ).permitAll()
 
 
+
+                        // ==============================
+                        // CHAT MESSAGE HISTORY
+                        // ==============================
+
+                                .requestMatchers(
+                                        "/api/chat/messages/**"
+                                ).authenticated()
+
+
                         // ==============================
                         // OTHER APIs
                         // ==============================

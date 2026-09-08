@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body {
 
     font-family:
@@ -70,7 +71,9 @@ body {
 }
 
 
-/* BRAND */
+/* =========================================
+   BRAND
+========================================= */
 
 .brand {
 
@@ -297,9 +300,31 @@ body {
 }
 
 
-.room-button {
+/* =========================================
+   ROOM ITEM
+========================================= */
+
+.room-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
 
     width: 100%;
+}
+
+
+/* =========================================
+   ROOM BUTTON
+========================================= */
+
+.room-button {
+
+    flex: 1;
+
+    min-width: 0;
 
     border: none;
 
@@ -320,6 +345,12 @@ body {
     transition: all .2s;
 
     position: relative;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
 }
 
 
@@ -347,6 +378,70 @@ body {
 
 
 /* =========================================
+   DELETE ROOM BUTTON
+========================================= */
+
+.delete-room-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        rgba(239,68,68,.12);
+
+    color: #fca5a5;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: all .2s;
+
+    flex-shrink: 0;
+}
+
+
+.delete-room-btn:hover {
+
+    background:
+        #ef4444;
+
+    color: white;
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================
+   EMPTY ROOMS
+========================================= */
+
+.empty-rooms {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    padding: 10px;
+
+    text-align: center;
+
+    border:
+        1px dashed
+        #475569;
+
+    border-radius: 10px;
+
+}
+
+
+/* =========================================
    CREATE ROOM
 ========================================= */
 
@@ -362,23 +457,54 @@ body {
 }
 
 
+/* =========================================
+   CREATE ROOM TITLE
+========================================= */
+
+.create-room-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CREATE ROOM INPUT
+========================================= */
+
 .create-room input {
 
     width: 100%;
 
     padding: 11px 12px;
 
-    border: 1px solid #475569;
+    border:
+        1px solid
+        #475569;
 
     border-radius: 9px;
 
-    background: #1e293b;
+    background:
+        #1e293b;
 
     color: white;
 
     outline: none;
 
     margin-bottom: 8px;
+
+    font-size: 13px;
+
+    transition: .2s;
 }
 
 
@@ -390,9 +516,18 @@ body {
 
 .create-room input:focus {
 
-    border-color: #818cf8;
+    border-color:
+        #818cf8;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(129,140,248,.1);
 }
 
+
+/* =========================================
+   CREATE BUTTON
+========================================= */
 
 .create-room button {
 
@@ -423,7 +558,8 @@ body {
 
 .create-room button:hover {
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 
     box-shadow:
         0 8px 20px
@@ -481,7 +617,8 @@ body {
 
     min-width: 0;
 
-    background: #f8fafc;
+    background:
+        #f8fafc;
 }
 
 
@@ -496,7 +633,8 @@ body {
     background: white;
 
     border-bottom:
-        1px solid #e5e7eb;
+        1px solid
+        #e5e7eb;
 
     padding:
         0 30px;
@@ -527,9 +665,11 @@ body {
 
     border-radius: 12px;
 
-    background: #eef2ff;
+    background:
+        #eef2ff;
 
-    color: #6366f1;
+    color:
+        #6366f1;
 
     display: flex;
 
@@ -561,11 +701,16 @@ body {
 }
 
 
+/* =========================================
+   HEADER ACTION
+========================================= */
+
 .header-actions button {
 
     border: none;
 
-    background: #f1f5f9;
+    background:
+        #f1f5f9;
 
     width: 40px;
 
@@ -583,9 +728,11 @@ body {
 
 .header-actions button:hover {
 
-    background: #e2e8f0;
+    background:
+        #e2e8f0;
 
-    transform: rotate(90deg);
+    transform:
+        rotate(90deg);
 }
 
 
@@ -617,7 +764,8 @@ body {
 
 .messages::-webkit-scrollbar-thumb {
 
-    background: #cbd5e1;
+    background:
+        #cbd5e1;
 
     border-radius: 10px;
 }
@@ -642,26 +790,41 @@ body {
         rgba(15,23,42,.06);
 
     border:
-        1px solid #eef2f7;
+        1px solid
+        #eef2f7;
 
     animation:
         messageIn .2s ease;
 
-    color: #334155;
+    color:
+        #334155;
 
     line-height: 1.5;
+
+    word-wrap: break-word;
 }
 
 
 .message strong {
 
-    color: #6366f1;
+    color:
+        #6366f1;
 
     font-size: 13px;
 
     display: block;
 
-    margin-bottom: 2px;
+    margin-bottom: 3px;
+}
+
+
+.message-content {
+
+    display: block;
+
+    font-size: 14px;
+
+    white-space: pre-wrap;
 }
 
 
@@ -709,7 +872,8 @@ body {
 
     border-radius: 20px;
 
-    background: #eef2ff;
+    background:
+        #eef2ff;
 
     display: flex;
 
@@ -726,7 +890,8 @@ body {
 
 .welcome h2 {
 
-    color: #1e293b;
+    color:
+        #1e293b;
 
     margin-bottom: 8px;
 }
@@ -750,7 +915,8 @@ body {
     background: white;
 
     border-top:
-        1px solid #e5e7eb;
+        1px solid
+        #e5e7eb;
 }
 
 
@@ -760,12 +926,14 @@ body {
 
     gap: 10px;
 
-    background: #f8fafc;
+    background:
+        #f8fafc;
 
     padding: 6px;
 
     border:
-        1px solid #e2e8f0;
+        1px solid
+        #e2e8f0;
 
     border-radius: 14px;
 
@@ -775,7 +943,8 @@ body {
 
 .message-box:focus-within {
 
-    border-color: #818cf8;
+    border-color:
+        #818cf8;
 
     box-shadow:
         0 0 0 3px
@@ -797,15 +966,21 @@ body {
 
     font-size: 14px;
 
-    color: #1e293b;
+    color:
+        #1e293b;
 }
 
 
 .message-box input::placeholder {
 
-    color: #94a3b8;
+    color:
+        #94a3b8;
 }
 
+
+/* =========================================
+   SEND BUTTON
+========================================= */
 
 .send-btn {
 
@@ -841,7 +1016,8 @@ body {
 
 .send-btn:hover {
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 
     box-shadow:
         0 7px 18px
@@ -849,13 +1025,18 @@ body {
 }
 
 
+/* =========================================
+   ENCRYPTION
+========================================= */
+
 .encryption-text {
 
     text-align: center;
 
     font-size: 11px;
 
-    color: #94a3b8;
+    color:
+        #94a3b8;
 
     margin-top: 8px;
 }
@@ -871,18 +1052,24 @@ body {
 
         width: 240px;
 
-        padding: 18px 14px;
+        padding:
+            18px 14px;
     }
+
 
     .chat-header {
 
-        padding: 0 15px;
+        padding:
+            0 15px;
     }
+
 
     .messages {
 
-        padding: 18px;
+        padding:
+            18px;
     }
+
 
     .message-area {
 
@@ -890,14 +1077,119 @@ body {
             12px 15px;
     }
 
+
     .message {
 
-        max-width: 85%;
+        max-width:
+            85%;
     }
 
+
     .send-btn span {
+
+        display:
+            none;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .sidebar {
+
+        width: 200px;
+    }
+
+
+    .brand-text {
 
         display: none;
     }
 
+
+    .user-info {
+
+        overflow: hidden;
+    }
+
+
+    .user-info strong {
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .create-room-title strong {
+
+        font-size: 11px;
+    }
+
+
+    .room-button {
+
+        padding:
+            11px 8px;
+
+        font-size:
+            12px;
+    }
+
+
+    .delete-room-btn {
+
+        width:
+            32px;
+
+        height:
+            32px;
+
+        font-size:
+            12px;
+    }
+
 }
+/* =========================================
+   CHAT HERO IMAGE
+========================================= */
+
+.hero-image {
+
+    position: absolute;
+
+    right: 40px;
+
+    bottom: 40px;
+
+    width: 260px;
+
+    z-index: 2;
+
+    opacity: 0.95;
+
+}
+
+/* =========================================
+   NEW CHAT BUBBLE STYLES
+========================================= */
+.message-sent {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.message-sent strong {
+    color: #e0e7ff;
+}
+
+.message-received {
+    background: white;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+

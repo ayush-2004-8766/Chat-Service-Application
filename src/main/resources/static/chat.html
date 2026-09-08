@@ -18,9 +18,13 @@
 
 <div class="app">
 
-    <!-- ================= SIDEBAR ================= -->
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
 
     <aside class="sidebar">
+
+        <!-- BRAND -->
 
         <div class="brand">
 
@@ -28,21 +32,30 @@
                 S
             </div>
 
-            <div>
+            <div class="brand-text">
+
                 <h2>Friends</h2>
-                <span>Chat</span>
+
+                <span>
+                    Chat
+                </span>
+
             </div>
 
         </div>
 
 
-        <!-- USER -->
+        <!-- ================================================= -->
+        <!-- USER CARD -->
+        <!-- ================================================= -->
 
         <div class="user-card">
 
             <div class="avatar"
                  id="userAvatar">
-                S
+
+                U
+
             </div>
 
             <div class="user-info">
@@ -60,50 +73,97 @@
         </div>
 
 
-        <!-- ROOMS -->
+        <!-- ================================================= -->
+        <!-- ROOMS HEADER -->
+        <!-- ================================================= -->
 
         <div class="rooms-header">
 
-            <h3>Chat Rooms</h3>
+            <h3>
+                Chat Rooms
+            </h3>
 
             <button
                     onclick="loadRooms()"
                     class="refresh-btn"
                     title="Refresh rooms">
+
                 ↻
+
             </button>
 
         </div>
 
 
+        <!-- ================================================= -->
+        <!-- ROOMS -->
+        <!-- ================================================= -->
+
         <div id="rooms"
              class="rooms">
+
         </div>
 
 
+        <!-- ================================================= -->
         <!-- CREATE ROOM -->
+        <!-- ================================================= -->
 
         <div class="create-room">
+
+            <div class="create-room-title">
+
+                <span>🔐</span>
+
+                <strong>
+                    Create Private Room
+                </strong>
+
+            </div>
+
+
+            <!-- ROOM NAME -->
 
             <input
                     type="text"
                     id="roomName"
-                    placeholder="New room name">
+                    placeholder="Enter room name"
+                    autocomplete="off">
 
-            <button onclick="createRoom()">
-                + Create Room
+
+            <!-- ROOM PASSWORD -->
+
+            <input
+                    type="password"
+                    id="roomPassword"
+                    placeholder="Enter room password"
+                    autocomplete="new-password">
+
+
+            <!-- CREATE BUTTON -->
+
+            <button
+                    onclick="createRoom()">
+
+                🔒 Create Room
+
             </button>
 
         </div>
 
 
+        <!-- ================================================= -->
         <!-- LOGOUT -->
+        <!-- ================================================= -->
 
         <button
                 class="logout-btn"
                 onclick="logout()">
 
-            <span>⇥</span>
+            <span>
+                ⇥
+            </span>
+
             Logout
 
         </button>
@@ -111,12 +171,16 @@
     </aside>
 
 
-    <!-- ================= MAIN CHAT ================= -->
+    <!-- ================================================= -->
+    <!-- MAIN CHAT -->
+    <!-- ================================================= -->
 
     <main class="chat-area">
 
 
+        <!-- ================================================= -->
         <!-- CHAT HEADER -->
+        <!-- ================================================= -->
 
         <header class="chat-header">
 
@@ -133,7 +197,7 @@
                     </h2>
 
                     <span id="connectionStatus">
-                        Connecting...
+                        ● Connecting...
                     </span>
 
                 </div>
@@ -141,12 +205,16 @@
             </div>
 
 
+            <!-- HEADER ACTION -->
+
             <div class="header-actions">
 
                 <button
                         onclick="loadRooms()"
-                        title="Refresh">
+                        title="Refresh rooms">
+
                     ⟳
+
                 </button>
 
             </div>
@@ -154,7 +222,9 @@
         </header>
 
 
+        <!-- ================================================= -->
         <!-- MESSAGES -->
+        <!-- ================================================= -->
 
         <section
                 id="messages"
@@ -166,10 +236,12 @@
                     💬
                 </div>
 
-                <h2>Welcome to Softmint Chat</h2>
+                <h2>
+                    Welcome to Friends Chat
+                </h2>
 
                 <p>
-                    Select a room and start chatting
+                    Select a private room and start chatting
                     in real-time.
                 </p>
 
@@ -178,7 +250,9 @@
         </section>
 
 
+        <!-- ================================================= -->
         <!-- MESSAGE INPUT -->
+        <!-- ================================================= -->
 
         <footer class="message-area">
 
@@ -191,19 +265,26 @@
                         autocomplete="off"
                         onkeydown="handleEnter(event)">
 
+
                 <button
                         onclick="sendMessage()"
                         class="send-btn">
 
-                    <span>Send</span>
+                    <span>
+                        Send
+                    </span>
+
                     ➤
 
                 </button>
 
             </div>
 
+
             <p class="encryption-text">
+
                 🔒 Messages are transmitted securely
+
             </p>
 
         </footer>
@@ -213,11 +294,18 @@
 </div>
 
 
-<!-- ================= SCRIPTS ================= -->
+<!-- ================================================= -->
+<!-- WEBSOCKET LIBRARIES -->
+<!-- ================================================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+
+<!-- ================================================= -->
+<!-- APPLICATION JS -->
+<!-- ================================================= -->
 
 <script src="app.js"></script>
 

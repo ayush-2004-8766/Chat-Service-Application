@@ -10,783 +10,142 @@
 
   <title>Friends Chat</title>
 
-
-  <style>
-
-    /* =========================================
-       RESET
-    ========================================= */
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-
-    /* =========================================
-       BODY
-    ========================================= */
-
-    body {
-
-        font-family:
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-        min-height: 100vh;
-
-        background:
-                linear-gradient(
-                        135deg,
-                        #eef2ff,
-                        #f8fafc
-                );
-
-        color: #111827;
-    }
-
-
-    /* =========================================
-       MAIN CONTAINER
-    ========================================= */
-
-    .auth-page {
-
-        min-height: 100vh;
-
-        display: flex;
-    }
-
-
-    /* =========================================
-       LEFT SIDE
-    ========================================= */
-
-    .auth-left {
-
-        width: 50%;
-
-        min-height: 100vh;
-
-        padding: 70px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        justify-content: center;
-
-        position: relative;
-
-        overflow: hidden;
-
-        color: white;
-
-        background:
-                linear-gradient(
-                        135deg,
-                        #111827 0%,
-                        #312e81 50%,
-                        #4c1d95 100%
-                );
-    }
-
-
-    /* Background Circle 1 */
-
-    .auth-left::before {
-
-        content: "";
-
-        position: absolute;
-
-        width: 450px;
-
-        height: 450px;
-
-        border-radius: 50%;
-
-        background:
-                rgba(139, 92, 246, 0.18);
-
-        top: -150px;
-
-        right: -150px;
-    }
-
-
-    /* Background Circle 2 */
-
-    .auth-left::after {
-
-        content: "";
-
-        position: absolute;
-
-        width: 350px;
-
-        height: 350px;
-
-        border-radius: 50%;
-
-        background:
-                rgba(99, 102, 241, 0.15);
-
-        bottom: -150px;
-
-        left: -120px;
-    }
-
-
-    /* =========================================
-       BRAND
-    ========================================= */
-
-    .brand {
-
-        position: relative;
-
-        z-index: 2;
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 18px;
-    }
-
-
-    .logo {
-
-        width: 68px;
-
-        height: 68px;
-
-        border-radius: 20px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        background:
-                linear-gradient(
-                        135deg,
-                        #818cf8,
-                        #a78bfa
-                );
-
-        font-size: 34px;
-
-        font-weight: 800;
-
-        box-shadow:
-                0 15px 40px
-                rgba(0, 0, 0, 0.25);
-    }
-
-
-    .brand h1 {
-
-        font-size: 40px;
-
-        font-weight: 700;
-
-        letter-spacing: -1px;
-    }
-
-
-    /* =========================================
-       LEFT TEXT
-    ========================================= */
-
-    .tagline {
-
-        position: relative;
-
-        z-index: 2;
-
-        margin-top: 45px;
-
-        font-size: 28px;
-
-        font-weight: 600;
-    }
-
-
-    .description {
-
-        position: relative;
-
-        z-index: 2;
-
-        max-width: 500px;
-
-        margin-top: 18px;
-
-        color: #cbd5e1;
-
-        font-size: 16px;
-
-        line-height: 1.7;
-    }
-
-
-    /* =========================================
-       FEATURES
-    ========================================= */
-
-    .features {
-
-        position: relative;
-
-        z-index: 2;
-
-        margin-top: 35px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 16px;
-    }
-
-
-    .feature {
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 12px;
-
-        color: #e2e8f0;
-
-        font-size: 15px;
-    }
-
-
-    .feature-icon {
-
-        width: 28px;
-
-        height: 28px;
-
-        border-radius: 50%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        background:
-                rgba(129, 140, 248, 0.25);
-
-        color: #c4b5fd;
-
-        font-weight: bold;
-    }
-
-
-    /* =========================================
-       RIGHT SIDE
-    ========================================= */
-
-    .auth-right {
-
-        width: 50%;
-
-        min-height: 100vh;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        padding: 30px;
-    }
-
-
-    /* =========================================
-       CARD
-    ========================================= */
-
-    .auth-card {
-
-        width: 100%;
-
-        max-width: 440px;
-
-        padding: 42px;
-
-        background: white;
-
-        border-radius: 24px;
-
-        border:
-                1px solid #e5e7eb;
-
-        box-shadow:
-                0 25px 70px
-                rgba(15, 23, 42, 0.12);
-
-        animation:
-                cardAppear 0.5s ease;
-    }
-
-
-    @keyframes cardAppear {
-
-        from {
-
-            opacity: 0;
-
-            transform:
-                    translateY(15px);
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform:
-                    translateY(0);
-        }
-    }
-
-
-    /* =========================================
-       HEADER
-    ========================================= */
-
-    .auth-header {
-
-        margin-bottom: 30px;
-    }
-
-
-    .auth-header h2 {
-
-        font-size: 29px;
-
-        color: #111827;
-
-        margin-bottom: 8px;
-    }
-
-
-    .auth-header p {
-
-        color: #64748b;
-
-        font-size: 14px;
-    }
-
-
-    /* =========================================
-       INPUT
-    ========================================= */
-
-    .input-group {
-
-        margin-bottom: 20px;
-    }
-
-
-    .input-group label {
-
-        display: block;
-
-        margin-bottom: 8px;
-
-        color: #334155;
-
-        font-size: 13px;
-
-        font-weight: 600;
-    }
-
-
-    .input-wrapper {
-
-        position: relative;
-    }
-
-
-    .input-icon {
-
-        position: absolute;
-
-        left: 14px;
-
-        top: 50%;
-
-        transform:
-                translateY(-50%);
-
-        color: #94a3b8;
-
-        font-size: 16px;
-
-        pointer-events: none;
-    }
-
-
-    .input-group input {
-
-        width: 100%;
-
-        padding:
-                14px
-                15px
-                14px
-                42px;
-
-        border:
-                1px solid #dbe2ea;
-
-        border-radius: 11px;
-
-        outline: none;
-
-        background: #f8fafc;
-
-        color: #1e293b;
-
-        font-size: 14px;
-
-        transition: 0.2s;
-    }
-
-
-    .input-group input::placeholder {
-
-        color: #94a3b8;
-    }
-
-
-    .input-group input:focus {
-
-        border-color: #6366f1;
-
-        background: white;
-
-        box-shadow:
-                0 0 0 4px
-                rgba(99, 102, 241, 0.10);
-    }
-
-
-    /* =========================================
-       BUTTON
-    ========================================= */
-
-    .primary-btn {
-
-        width: 100%;
-
-        border: none;
-
-        border-radius: 11px;
-
-        padding: 14px;
-
-        margin-top: 5px;
-
-        background:
-                linear-gradient(
-                        135deg,
-                        #6366f1,
-                        #8b5cf6
-                );
-
-        color: white;
-
-        font-size: 15px;
-
-        font-weight: 600;
-
-        cursor: pointer;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 10px;
-
-        transition: 0.2s;
-
-        box-shadow:
-                0 8px 20px
-                rgba(99, 102, 241, 0.25);
-    }
-
-
-    .primary-btn:hover {
-
-        transform:
-                translateY(-2px);
-
-        box-shadow:
-                0 12px 25px
-                rgba(99, 102, 241, 0.35);
-    }
-
-
-    .primary-btn:active {
-
-        transform:
-                translateY(0);
-    }
-
-
-    .primary-btn:disabled {
-
-        opacity: 0.7;
-
-        cursor: not-allowed;
-
-        transform: none;
-    }
-
-
-    /* =========================================
-       SWITCH LOGIN / REGISTER
-    ========================================= */
-
-    .switch-text {
-
-        text-align: center;
-
-        margin-top: 25px;
-
-        color: #64748b;
-
-        font-size: 13px;
-    }
-
-
-    .link-btn {
-
-        border: none;
-
-        background: transparent;
-
-        color: #6366f1;
-
-        font-weight: 600;
-
-        cursor: pointer;
-
-        font-size: 13px;
-    }
-
-
-    .link-btn:hover {
-
-        text-decoration: underline;
-    }
-
-
-    /* =========================================
-       MESSAGE
-    ========================================= */
-
-    .message {
-
-        display: none;
-
-        padding: 12px 14px;
-
-        margin-bottom: 20px;
-
-        border-radius: 10px;
-
-        font-size: 13px;
-
-        font-weight: 500;
-    }
-
-
-    .message.success {
-
-        display: block;
-
-        background: #ecfdf5;
-
-        color: #047857;
-
-        border:
-                1px solid #a7f3d0;
-    }
-
-
-    .message.error {
-
-        display: block;
-
-        background: #fef2f2;
-
-        color: #b91c1c;
-
-        border:
-                1px solid #fecaca;
-    }
-
-
-    /* =========================================
-       MOBILE
-    ========================================= */
-
-    @media (max-width: 850px) {
-
-        .auth-page {
-
-            display: block;
-        }
-
-
-        .auth-left {
-
-            display: none;
-        }
-
-
-        .auth-right {
-
-            width: 100%;
-
-            min-height: 100vh;
-
-            padding: 20px;
-        }
-
-
-        .auth-card {
-
-            padding: 30px 25px;
-        }
-    }
-
-  </style>
+  <link rel="stylesheet"
+        href="/auth.css">
 
 </head>
 
-
 <body>
-
 
 <div class="auth-page">
 
-
-  <!-- =========================================
-       LEFT SIDE
-  ========================================== -->
+  <!-- LEFT SIDE -->
 
   <div class="auth-left">
 
+    <div class="left-content">
 
-    <div class="brand">
+      <div class="brand">
 
-      <div class="logo">
-        S
-      </div>
-
-      <h1>
-        Friends Chat
-      </h1>
-
-    </div>
-
-
-    <div class="tagline">
-
-      Connect. Chat. Collaborate.
-
-    </div>
-
-
-    <div class="description">
-
-      A simple and secure real-time chat
-      application powered by Spring Boot
-      and WebSocket.
-
-    </div>
-
-
-    <div class="features">
-
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          ✓
+        <div class="logo">
+          S
         </div>
 
-        <span>
-                    Real-time messaging
-                </span>
+        <div>
 
-      </div>
+          <h1>
+            Friends Chat
+          </h1>
 
+          <div class="brand-subtitle">
+            Real-time communication platform
+          </div>
 
-      <div class="feature">
-
-        <div class="feature-icon">
-          ✓
         </div>
 
-        <span>
-                    Secure JWT authentication
-                </span>
+      </div>
+
+
+      <div class="tagline">
+
+        Connect.
+        <span>Chat.</span>
+        Collaborate.
 
       </div>
 
 
-      <div class="feature">
+      <div class="description">
 
-        <div class="feature-icon">
-          ✓
+        A simple and secure real-time chat
+        application powered by Spring Boot
+        and WebSocket.
+
+      </div>
+
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+                        Real-time messaging
+                    </span>
+
         </div>
 
-        <span>
-                    Multiple chat rooms
-                </span>
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+                        Secure JWT authentication
+                    </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <span>
+                        Multiple private chat rooms
+                    </span>
+
+        </div>
 
       </div>
-
 
     </div>
 
+
+    <!-- CHAT IMAGE -->
+
+    <div class="chat-illustration">
+
+      <img
+              src="/images/chat-hero.png"
+              alt="Friends Chat Illustration">
+
+    </div>
+
+
+    <!-- FLOATING BUBBLES -->
+
+    <div class="floating-bubble bubble-one">
+      💬
+    </div>
+
+    <div class="floating-bubble bubble-two">
+      ❤️
+    </div>
+
+    <div class="floating-bubble bubble-three">
+      ✨
+    </div>
 
   </div>
 
 
-
-  <!-- =========================================
-       RIGHT SIDE
-  ========================================== -->
+  <!-- RIGHT SIDE -->
 
   <div class="auth-right">
 
-
     <div class="auth-card">
 
-
-      <!-- =================================
-           LOGIN
-      ================================== -->
+      <!-- LOGIN -->
 
       <div id="loginSection">
-
 
         <div class="auth-header">
 
@@ -806,21 +165,17 @@
         </div>
 
 
-        <!-- EMAIL -->
-
         <div class="input-group">
 
           <label>
             Email
           </label>
 
-
           <div class="input-wrapper">
 
                         <span class="input-icon">
                             ✉
                         </span>
-
 
             <input
                     type="email"
@@ -833,21 +188,17 @@
         </div>
 
 
-        <!-- PASSWORD -->
-
         <div class="input-group">
 
           <label>
             Password
           </label>
 
-
           <div class="input-wrapper">
 
                         <span class="input-icon">
                             🔒
                         </span>
-
 
             <input
                     type="password"
@@ -859,8 +210,6 @@
 
         </div>
 
-
-        <!-- LOGIN BUTTON -->
 
         <button
                 id="loginButton"
@@ -892,18 +241,13 @@
 
         </p>
 
-
       </div>
 
 
-
-      <!-- =================================
-           REGISTER
-      ================================== -->
+      <!-- REGISTER -->
 
       <div id="registerSection"
            style="display: none;">
-
 
         <div class="auth-header">
 
@@ -923,21 +267,17 @@
         </div>
 
 
-        <!-- NAME -->
-
         <div class="input-group">
 
           <label>
             Name
           </label>
 
-
           <div class="input-wrapper">
 
                         <span class="input-icon">
                             👤
                         </span>
-
 
             <input
                     type="text"
@@ -950,21 +290,17 @@
         </div>
 
 
-        <!-- EMAIL -->
-
         <div class="input-group">
 
           <label>
             Email
           </label>
 
-
           <div class="input-wrapper">
 
                         <span class="input-icon">
                             ✉
                         </span>
-
 
             <input
                     type="email"
@@ -977,21 +313,17 @@
         </div>
 
 
-        <!-- PASSWORD -->
-
         <div class="input-group">
 
           <label>
             Password
           </label>
 
-
           <div class="input-wrapper">
 
                         <span class="input-icon">
                             🔒
                         </span>
-
 
             <input
                     type="password"
@@ -1003,8 +335,6 @@
 
         </div>
 
-
-        <!-- REGISTER BUTTON -->
 
         <button
                 id="registerButton"
@@ -1036,21 +366,16 @@
 
         </p>
 
-
       </div>
-
 
     </div>
 
-
   </div>
-
 
 </div>
 
 
 <script src="/auth.js"></script>
-
 
 </body>
 
