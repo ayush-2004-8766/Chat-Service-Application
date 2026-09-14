@@ -36,6 +36,4 @@ public class ChatRoom {
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
-
-
 }
