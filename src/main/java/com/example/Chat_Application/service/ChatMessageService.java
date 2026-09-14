@@ -6,6 +6,7 @@ import com.example.Chat_Application.entity.User;
 import com.example.Chat_Application.repository.ChatMessageRepository;
 import com.example.Chat_Application.repository.RoomMemberRepository;
 import com.example.Chat_Application.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -54,6 +55,17 @@ public class ChatMessageService {
         );
 
         messageRepository.save(entity);
+        // return message; se theek pehle ye add karein:
+
+        if (message.getContent().toLowerCase().startsWith("@bot")) {
+            ChatMessageEntity botReply = new ChatMessageEntity();
+            botReply.setRoomId(message.getRoomId());
+            botReply.setSender("Doraemon Bot 🐱");
+            botReply.setContent("Hello! .🚁");
+            botReply.setSentAt(java.time.LocalDateTime.now());
+
+            messageRepository.save(botReply);
+        }
 
         return message;
     }
@@ -72,6 +84,35 @@ public class ChatMessageService {
         }
 
         return messageRepository.findByRoomIdOrderBySentAtAsc(roomId);
+    }
+
+    // NAYA: Reaction add karne ka service logic
+    public void addReactionToMessage(Long messageId, String sender, String emoji, Long roomId) {
+        // 1. Database se message dhoondhein
+        ChatMessageEntity message = messageRepository.findById(messageId).orElse(null);
+
+        if (message != null) {
+            // Reactions ko save karna
+            message.setReactions(emoji + " (" + sender + ")");
+            messageRepository.save(message);
+
+            // 2. WebSocket ke zariye sabhi ko broadcast karein
+            // Note: messagingTemplate ko is service mein inject karna hoga agar pehle se nahi hai
+        }
+    }
+
+    // NAYA: Messages ko Read mark karne ka service logic
+    @Transactional
+    public void markMessagesAsRead(Long roomId, String readerName) {
+        List<ChatMessageEntity> messages = messageRepository.findByRoomIdOrderBySentAtAsc(roomId);
+
+        for (ChatMessageEntity msg : messages) {
+            // Jo message apne khud ke nahi hain aur abhi tak READ nahi hue, unhe update kar do
+            if (!msg.getSender().equals(readerName) && !"READ".equals(msg.getStatus())) {
+                msg.setStatus("READ");
+                messageRepository.save(msg);
+            }
+        }
     }
 
 }

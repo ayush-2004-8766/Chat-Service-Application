@@ -105,7 +105,8 @@ public class SecurityConfig {
 
                                 "/css/**",
                                 "/js/**",
-                                "/images/**"
+                                "/images/**",
+                                "/uploads/**"
                         ).permitAll()
 
 
@@ -135,6 +136,7 @@ public class SecurityConfig {
                                 .requestMatchers(
                                         "/api/chat/messages/**"
                                 ).authenticated()
+
 
 
                         // ==============================

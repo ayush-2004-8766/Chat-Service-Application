@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,5 +28,11 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    // Apne existing fields ke niche ye add karein
+    @Column(columnDefinition = "boolean default false")
+    private boolean isOnline;
+
+    private LocalDateTime lastSeen;
 
 }

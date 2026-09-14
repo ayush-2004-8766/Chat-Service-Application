@@ -26,10 +26,19 @@ public class ChatMessageEntity {
     @Column(nullable = false)
     private String sender;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String content;
+
+    // Reaction ke liye naya field (e.g., {"Ayush": "👍", "Rahul": "❤️"})
+    @Column(columnDefinition = "TEXT")
+    private String reactions;
+
+    // ChatMessageEntity.java ke andar
+    private String status = "SENT"; // Default sent rahega
 
     @Column(nullable = false)
     private LocalDateTime sentAt;
 
-}
+    //public String getStatus() { return status; }
+    //public void setStatus(String status) { this.status = status; }
+   }

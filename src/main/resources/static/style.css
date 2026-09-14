@@ -1,1195 +1,537 @@
+/* =====================================================
+   GLOBAL STYLES & RESET
+   ===================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 body {
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eef2ff,
-            #f8fafc
-        );
-
+    background-color: #0f172a;
+    color: #f8fafc;
     height: 100vh;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-
-/* =========================================
-   MAIN APP
-========================================= */
-
+/* =====================================================
+   APP MAIN CONTAINER (DESKTOP LAYOUT)
+   ===================================================== */
 .app {
-
     display: flex;
-
-    width: 100%;
-
-    height: 100vh;
-
-    background: #ffffff;
+    width: 95vw;
+    height: 90vh;
+    max-width: 1400px;
+    background-color: #1e293b;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
-
-/* =========================================
-   SIDEBAR
-========================================= */
-
+/* =====================================================
+   SIDEBAR STYLES
+   ===================================================== */
 .sidebar {
-
-    width: 310px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #111827,
-            #1e293b
-        );
-
-    color: white;
-
-    padding: 25px 20px;
-
+    width: 320px;
+    background-color: #1e293b;
+    border-right: 1px solid #334155;
     display: flex;
-
     flex-direction: column;
-
-    box-shadow:
-        5px 0 25px
-        rgba(0, 0, 0, 0.12);
-
+    flex-shrink: 0;
+    padding: 20px;
+    overflow-y: auto;
+    gap: 15px;
 }
 
-
-/* =========================================
-   BRAND
-========================================= */
-
+/* Brand */
 .brand {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
-    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #334155;
 }
-
 
 .brand-logo {
-
-    width: 46px;
-
-    height: 46px;
-
-    border-radius: 14px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 23px;
-
-    font-weight: bold;
-
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #0284c7;
     color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6366f1,
-            #8b5cf6
-        );
-
-    box-shadow:
-        0 8px 20px
-        rgba(99, 102, 241, 0.35);
-}
-
-
-.brand h2 {
-
-    font-size: 20px;
-
-    letter-spacing: .3px;
-}
-
-
-.brand span {
-
-    color: #94a3b8;
-
-    font-size: 13px;
-}
-
-
-/* =========================================
-   USER CARD
-========================================= */
-
-.user-card {
-
     display: flex;
-
     align-items: center;
-
-    gap: 12px;
-
-    padding: 14px;
-
-    border-radius: 14px;
-
-    background:
-        rgba(255,255,255,0.07);
-
-    margin-bottom: 28px;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.08);
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+.brand-text h2 {
+    font-size: 1.1rem;
+    color: #f8fafc;
+}
+
+.brand-text span {
+    font-size: 0.8rem;
+    color: #38bdf8;
+}
+
+/* User Card */
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0f172a;
+    padding: 10px 12px;
+    border-radius: 10px;
+}
 
 .avatar {
-
-    width: 43px;
-
-    height: 43px;
-
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #818cf8,
-            #c084fc
-        );
-
+    background: #334155;
+    color: white;
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     font-weight: bold;
-
-    font-size: 17px;
 }
-
 
 .user-info {
-
     display: flex;
-
     flex-direction: column;
-
-    gap: 3px;
+    font-size: 0.85rem;
 }
-
 
 .user-info strong {
-
-    font-size: 14px;
+    color: #f8fafc;
 }
-
 
 .user-info span {
-
-    color: #4ade80;
-
-    font-size: 12px;
+    color: #22c55e;
+    font-size: 0.75rem;
 }
 
-
-/* =========================================
-   ROOM HEADER
-========================================= */
-
+/* Rooms Header */
 .rooms-header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
-    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 5px;
 }
-
-
-.rooms-header h3 {
-
-    font-size: 14px;
-
-    color: #cbd5e1;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
 
 .refresh-btn {
-
+    background: none;
     border: none;
-
-    background: transparent;
-
-    color: #94a3b8;
-
-    font-size: 20px;
-
+    color: #38bdf8;
     cursor: pointer;
-
-    transition: .2s;
+    font-size: 1rem;
 }
 
-
-.refresh-btn:hover {
-
-    color: white;
-
-    transform: rotate(90deg);
-}
-
-
-/* =========================================
-   ROOMS
-========================================= */
-
+/* Rooms List Box */
 .rooms {
-
     display: flex;
-
     flex-direction: column;
-
-    gap: 7px;
-
-    overflow-y: auto;
-
-    flex: 1;
-
-    padding-right: 4px;
-}
-
-
-.rooms::-webkit-scrollbar {
-
-    width: 4px;
-}
-
-
-.rooms::-webkit-scrollbar-thumb {
-
-    background: #475569;
-
-    border-radius: 10px;
-}
-
-
-/* =========================================
-   ROOM ITEM
-========================================= */
-
-.room-item {
-
-    display: flex;
-
-    align-items: center;
-
     gap: 6px;
-
-    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
 }
 
+/* Room Item Generated by JS */
+.room-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    background-color: #334155;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
 
-/* =========================================
-   ROOM BUTTON
-========================================= */
+.room-item:hover {
+    background-color: #475569;
+}
 
 .room-button {
-
-    flex: 1;
-
-    min-width: 0;
-
+    background: none;
     border: none;
-
-    border-radius: 10px;
-
-    background: transparent;
-
-    color: #cbd5e1;
-
-    padding: 13px 14px;
-
-    text-align: left;
-
+    color: #f8fafc;
     cursor: pointer;
-
-    font-size: 14px;
-
-    transition: all .2s;
-
-    position: relative;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
-    white-space: nowrap;
+    text-align: left;
+    flex: 1;
 }
-
-
-.room-button::before {
-
-    content: "#";
-
-    margin-right: 9px;
-
-    color: #818cf8;
-
-    font-weight: bold;
-}
-
-
-.room-button:hover {
-
-    background:
-        rgba(255,255,255,.08);
-
-    color: white;
-
-    transform: translateX(3px);
-}
-
-
-/* =========================================
-   DELETE ROOM BUTTON
-========================================= */
 
 .delete-room-btn {
-
-    width: 38px;
-
-    height: 38px;
-
+    background: none;
     border: none;
-
-    border-radius: 9px;
-
-    background:
-        rgba(239,68,68,.12);
-
-    color: #fca5a5;
-
     cursor: pointer;
-
-    font-size: 15px;
-
-    transition: all .2s;
-
-    flex-shrink: 0;
+    font-size: 0.9rem;
 }
 
-
-.delete-room-btn:hover {
-
-    background:
-        #ef4444;
-
-    color: white;
-
-    transform: scale(1.05);
-
-}
-
-
-/* =========================================
-   EMPTY ROOMS
-========================================= */
-
-.empty-rooms {
-
-    color: #94a3b8;
-
-    font-size: 13px;
-
-    padding: 10px;
-
-    text-align: center;
-
-    border:
-        1px dashed
-        #475569;
-
-    border-radius: 10px;
-
-}
-
-
-/* =========================================
-   CREATE ROOM
-========================================= */
-
+/* Create Room Box */
 .create-room {
-
-    margin-top: 15px;
-
-    padding-top: 15px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.08);
+    background-color: #0f172a;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #334155;
 }
-
-
-/* =========================================
-   CREATE ROOM TITLE
-========================================= */
 
 .create-room-title {
-
     display: flex;
-
     align-items: center;
-
-    gap: 7px;
-
-    margin-bottom: 10px;
-
+    gap: 6px;
+    font-size: 0.85rem;
     color: #cbd5e1;
-
-    font-size: 13px;
 }
-
-
-/* =========================================
-   CREATE ROOM INPUT
-========================================= */
 
 .create-room input {
-
-    width: 100%;
-
-    padding: 11px 12px;
-
-    border:
-        1px solid
-        #475569;
-
-    border-radius: 9px;
-
-    background:
-        #1e293b;
-
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 8px 10px;
     color: white;
-
+    font-size: 0.85rem;
     outline: none;
-
-    margin-bottom: 8px;
-
-    font-size: 13px;
-
-    transition: .2s;
 }
-
-
-.create-room input::placeholder {
-
-    color: #94a3b8;
-}
-
 
 .create-room input:focus {
-
-    border-color:
-        #818cf8;
-
-    box-shadow:
-        0 0 0 2px
-        rgba(129,140,248,.1);
+    border-color: #38bdf8;
 }
-
-
-/* =========================================
-   CREATE BUTTON
-========================================= */
 
 .create-room button {
-
-    width: 100%;
-
-    padding: 11px;
-
-    border: none;
-
-    border-radius: 9px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6366f1,
-            #8b5cf6
-        );
-
+    background-color: #0284c7;
     color: white;
-
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 0.85rem;
     font-weight: 600;
-
     cursor: pointer;
-
-    transition: .2s;
+    transition: background 0.2s;
 }
-
 
 .create-room button:hover {
-
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        0 8px 20px
-        rgba(99,102,241,.3);
+    background-color: #0ea5e9;
 }
 
-
-/* =========================================
-   LOGOUT
-========================================= */
-
+/* Logout Button */
 .logout-btn {
-
-    margin-top: 15px;
-
-    padding: 12px;
-
+    margin-top: auto;
+    background-color: #ef4444;
+    color: white;
     border: none;
-
-    border-radius: 10px;
-
-    background:
-        rgba(239,68,68,.1);
-
-    color: #fca5a5;
-
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 600;
     cursor: pointer;
-
-    font-size: 14px;
-
-    transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
 }
-
 
 .logout-btn:hover {
-
-    background:
-        rgba(239,68,68,.2);
-
-    color: white;
+    background-color: #dc2626;
 }
 
-
-/* =========================================
-   CHAT AREA
-========================================= */
-
+/* =====================================================
+   CHAT MAIN AREA
+   ===================================================== */
 .chat-area {
-
     flex: 1;
-
     display: flex;
-
     flex-direction: column;
-
-    min-width: 0;
-
-    background:
-        #f8fafc;
+    background-color: #0f172a;
+    overflow: hidden;
+    position: relative;
 }
-
-
-/* =========================================
-   CHAT HEADER
-========================================= */
 
 .chat-header {
-
-    height: 78px;
-
-    background: white;
-
-    border-bottom:
-        1px solid
-        #e5e7eb;
-
-    padding:
-        0 30px;
-
+    padding: 15px 20px;
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
     display: flex;
-
-    align-items: center;
-
     justify-content: space-between;
+    align-items: center;
 }
-
 
 .room-title {
-
     display: flex;
-
     align-items: center;
-
-    gap: 13px;
+    gap: 12px;
 }
-
 
 .room-icon {
-
-    width: 42px;
-
-    height: 42px;
-
-    border-radius: 12px;
-
-    background:
-        #eef2ff;
-
-    color:
-        #6366f1;
-
+    width: 35px;
+    height: 35px;
+    background: #334155;
+    border-radius: 8px;
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    font-size: 22px;
-
     font-weight: bold;
+    color: #38bdf8;
 }
-
 
 .room-title h2 {
-
-    font-size: 17px;
-
-    color: #111827;
-
-    margin-bottom: 3px;
+    font-size: 1.05rem;
+    color: #f8fafc;
 }
 
-
 .room-title span {
-
-    font-size: 12px;
-
+    font-size: 0.75rem;
     color: #22c55e;
 }
 
-
-/* =========================================
-   HEADER ACTION
-========================================= */
-
 .header-actions button {
-
+    background: none;
     border: none;
-
-    background:
-        #f1f5f9;
-
-    width: 40px;
-
-    height: 40px;
-
-    border-radius: 10px;
-
+    color: #94a3b8;
+    font-size: 1.2rem;
     cursor: pointer;
-
-    font-size: 19px;
-
-    transition: .2s;
 }
 
-
-.header-actions button:hover {
-
-    background:
-        #e2e8f0;
-
-    transform:
-        rotate(90deg);
-}
-
-
-/* =========================================
-   MESSAGES
-========================================= */
-
+/* =====================================================
+   MESSAGES SECTION
+   ===================================================== */
 .messages {
-
     flex: 1;
-
+    padding: 20px;
     overflow-y: auto;
-
-    padding: 30px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
 }
 
-
-.messages::-webkit-scrollbar {
-
-    width: 7px;
-}
-
-
-.messages::-webkit-scrollbar-thumb {
-
-    background:
-        #cbd5e1;
-
-    border-radius: 10px;
-}
-
-
-/* =========================================
-   MESSAGE
-========================================= */
-
-.message {
-
-    max-width: 65%;
-
-    background: white;
-
-    padding: 12px 16px;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 2px 8px
-        rgba(15,23,42,.06);
-
-    border:
-        1px solid
-        #eef2f7;
-
-    animation:
-        messageIn .2s ease;
-
-    color:
-        #334155;
-
-    line-height: 1.5;
-
-    word-wrap: break-word;
-}
-
-
-.message strong {
-
-    color:
-        #6366f1;
-
-    font-size: 13px;
-
-    display: block;
-
-    margin-bottom: 3px;
-}
-
-
-.message-content {
-
-    display: block;
-
-    font-size: 14px;
-
-    white-space: pre-wrap;
-}
-
-
-@keyframes messageIn {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(8px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-}
-
-
-/* =========================================
-   WELCOME
-========================================= */
-
 .welcome {
-
     margin: auto;
-
     text-align: center;
-
-    color: #64748b;
+    color: #94a3b8;
 }
-
 
 .welcome-icon {
-
-    width: 70px;
-
-    height: 70px;
-
-    border-radius: 20px;
-
-    background:
-        #eef2ff;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 32px;
-
-    margin:
-        0 auto 18px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
-
 
 .welcome h2 {
-
-    color:
-        #1e293b;
-
-    margin-bottom: 8px;
+    color: #f8fafc;
+    margin-bottom: 5px;
 }
 
-
-.welcome p {
-
-    font-size: 14px;
+/* Message Bubbles */
+.message {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    word-break: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-
-/* =========================================
-   MESSAGE AREA
-========================================= */
-
-.message-area {
-
-    padding:
-        15px 30px 18px;
-
-    background: white;
-
-    border-top:
-        1px solid
-        #e5e7eb;
-}
-
-
-.message-box {
-
-    display: flex;
-
-    gap: 10px;
-
-    background:
-        #f8fafc;
-
-    padding: 6px;
-
-    border:
-        1px solid
-        #e2e8f0;
-
-    border-radius: 14px;
-
-    transition: .2s;
-}
-
-
-.message-box:focus-within {
-
-    border-color:
-        #818cf8;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(99,102,241,.1);
-}
-
-
-.message-box input {
-
-    flex: 1;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    padding: 12px;
-
-    font-size: 14px;
-
-    color:
-        #1e293b;
-}
-
-
-.message-box input::placeholder {
-
-    color:
-        #94a3b8;
-}
-
-
-/* =========================================
-   SEND BUTTON
-========================================= */
-
-.send-btn {
-
-    border: none;
-
-    border-radius: 10px;
-
-    padding:
-        0 18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6366f1,
-            #8b5cf6
-        );
-
-    color: white;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    transition: .2s;
-}
-
-
-.send-btn:hover {
-
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        0 7px 18px
-        rgba(99,102,241,.3);
-}
-
-
-/* =========================================
-   ENCRYPTION
-========================================= */
-
-.encryption-text {
-
-    text-align: center;
-
-    font-size: 11px;
-
-    color:
-        #94a3b8;
-
-    margin-top: 8px;
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 700px) {
-
-    .sidebar {
-
-        width: 240px;
-
-        padding:
-            18px 14px;
-    }
-
-
-    .chat-header {
-
-        padding:
-            0 15px;
-    }
-
-
-    .messages {
-
-        padding:
-            18px;
-    }
-
-
-    .message-area {
-
-        padding:
-            12px 15px;
-    }
-
-
-    .message {
-
-        max-width:
-            85%;
-    }
-
-
-    .send-btn span {
-
-        display:
-            none;
-    }
-
-}
-
-
-@media (max-width: 520px) {
-
-    .sidebar {
-
-        width: 200px;
-    }
-
-
-    .brand-text {
-
-        display: none;
-    }
-
-
-    .user-info {
-
-        overflow: hidden;
-    }
-
-
-    .user-info strong {
-
-        white-space: nowrap;
-
-        overflow: hidden;
-
-        text-overflow: ellipsis;
-    }
-
-
-    .create-room-title strong {
-
-        font-size: 11px;
-    }
-
-
-    .room-button {
-
-        padding:
-            11px 8px;
-
-        font-size:
-            12px;
-    }
-
-
-    .delete-room-btn {
-
-        width:
-            32px;
-
-        height:
-            32px;
-
-        font-size:
-            12px;
-    }
-
-}
-/* =========================================
-   CHAT HERO IMAGE
-========================================= */
-
-.hero-image {
-
-    position: absolute;
-
-    right: 40px;
-
-    bottom: 40px;
-
-    width: 260px;
-
-    z-index: 2;
-
-    opacity: 0.95;
-
-}
-
-/* =========================================
-   NEW CHAT BUBBLE STYLES
-========================================= */
 .message-sent {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    background-color: #0284c7;
     color: white;
-    margin-left: auto;
-    border-bottom-right-radius: 4px;
-}
-
-.message-sent strong {
-    color: #e0e7ff;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
 }
 
 .message-received {
-    background: white;
-    margin-right: auto;
-    border-bottom-left-radius: 4px;
+    background-color: #334155;
+    color: #f8fafc;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
 }
 
+.message strong {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.message img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+/* =====================================================
+   MESSAGE INPUT FOOTER
+   ===================================================== */
+.message-area {
+    padding: 12px 20px;
+    background-color: #1e293b;
+    border-top: 1px solid #334155;
+}
+
+.message-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 25px;
+    padding: 6px 12px;
+}
+
+#messageInput {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 0.95rem;
+    padding: 8px 4px;
+}
+
+.send-btn {
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.send-btn:hover {
+    background-color: #0ea5e9;
+}
+
+.encryption-text {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 8px;
+}
+/* =====================================================
+   RESPONSIVE DESIGN FOR MOBILE SCREENS (< 768px)
+   ===================================================== */
+@media (max-width: 767px) {
+    body {
+        overflow: auto;
+        background-color: #0f172a;
+    }
+
+    /* Poori screen ko mobile par vertically stack karein */
+    .app {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        flex-direction: column;
+        box-shadow: none;
+    }
+
+    /* Mobile par sidebar ko ek neat, clean compact box banayein */
+    .sidebar {
+        width: 100%;
+        max-height: 200px; /* Fixed height taaki scroll karke rooms/friends dekh saken */
+        padding: 10px 12px;
+        gap: 8px;
+        border-right: none;
+        border-bottom: 2px solid #334155;
+        overflow-y: auto;
+        flex-shrink: 0;
+    }
+
+    /* Brand aur User card ko mobile par compact karein */
+    .brand {
+        padding-bottom: 6px;
+    }
+
+    .brand-logo {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .brand-text h2 {
+        font-size: 0.95rem;
+    }
+
+    .user-card {
+        padding: 6px 10px;
+    }
+
+    /* Rooms aur Friends list ki height fix taaki jagah bache */
+    .rooms {
+        max-height: 80px;
+        overflow-y: auto;
+    }
+
+    /* Mobile par extra space bachane ke liye Create Room aur Logout ko neat rakhein */
+    .create-room {
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .create-room input {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    .create-room button {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .logout-btn {
+        margin-top: 5px;
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    /* Chat Area bachi hui poori mobile screen lega */
+    .chat-area {
+        flex: 1;
+        width: 100%;
+        height: calc(100vh - 200px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .messages {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .message {
+        max-width: 88%;
+        font-size: 0.9rem;
+    }
+
+    .message-area {
+        padding: 8px 10px;
+    }
+
+    .message-box {
+        padding: 4px 10px;
+    }
+
+    #messageInput {
+        font-size: 0.9rem;
+        padding: 4px;
+    }
+
+    .send-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}

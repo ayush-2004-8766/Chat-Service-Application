@@ -2,16 +2,10 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friends Chat</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -21,151 +15,65 @@
     <!-- ================================================= -->
     <!-- SIDEBAR -->
     <!-- ================================================= -->
-
     <aside class="sidebar">
 
         <!-- BRAND -->
-
         <div class="brand">
-
-            <div class="brand-logo">
-                S
-            </div>
-
+            <div class="brand-logo">S</div>
             <div class="brand-text">
-
                 <h2>Friends</h2>
-
-                <span>
-                    Chat
-                </span>
-
+                <span>Chat</span>
             </div>
-
         </div>
 
-
-        <!-- ================================================= -->
         <!-- USER CARD -->
-        <!-- ================================================= -->
-
         <div class="user-card">
-
-            <div class="avatar"
-                 id="userAvatar">
-
-                U
-
-            </div>
-
+            <div class="avatar" id="userAvatar">U</div>
             <div class="user-info">
-
-                <strong id="userName">
-                    User
-                </strong>
-
-                <span>
-                    ● Online
-                </span>
-
+                <strong id="userName">User</strong>
+                <span>● Online</span>
             </div>
-
         </div>
 
-
-        <!-- ================================================= -->
         <!-- ROOMS HEADER -->
-        <!-- ================================================= -->
-
         <div class="rooms-header">
-
-            <h3>
-                Chat Rooms
-            </h3>
-
-            <button
-                    onclick="loadRooms()"
-                    class="refresh-btn"
-                    title="Refresh rooms">
-
-                ↻
-
-            </button>
-
+            <h3>Chat Rooms</h3>
+            <button onclick="loadRooms()" class="refresh-btn" title="Refresh rooms">↻</button>
         </div>
 
-
-        <!-- ================================================= -->
         <!-- ROOMS -->
-        <!-- ================================================= -->
+        <div id="rooms" class="rooms"></div>
 
-        <div id="rooms"
-             class="rooms">
-
+        <!-- FRIENDS STATUS -->
+        <div class="rooms-header" style="margin-top: 20px;">
+            <h3>Active Friends</h3>
+            <button onclick="loadUserStatus()" class="refresh-btn" title="Refresh Status">↻</button>
         </div>
 
+        <div id="usersList" class="rooms">
+            <!-- JavaScript yahan users ka status daalega -->
+        </div>
 
-        <!-- ================================================= -->
         <!-- CREATE ROOM -->
-        <!-- ================================================= -->
-
         <div class="create-room">
-
             <div class="create-room-title">
-
                 <span>🔐</span>
-
-                <strong>
-                    Create Private Room
-                </strong>
-
+                <strong>Create Private Room</strong>
             </div>
-
 
             <!-- ROOM NAME -->
-
-            <input
-                    type="text"
-                    id="roomName"
-                    placeholder="Enter room name"
-                    autocomplete="off">
-
+            <input type="text" id="roomName" placeholder="Enter room name" autocomplete="off">
 
             <!-- ROOM PASSWORD -->
-
-            <input
-                    type="password"
-                    id="roomPassword"
-                    placeholder="Enter room password"
-                    autocomplete="new-password">
-
+            <input type="password" id="roomPassword" placeholder="Enter room password" autocomplete="new-password">
 
             <!-- CREATE BUTTON -->
-
-            <button
-                    onclick="createRoom()">
-
-                🔒 Create Room
-
-            </button>
-
+            <button onclick="createRoom()">🔒 Create Room</button>
         </div>
 
-
-        <!-- ================================================= -->
         <!-- LOGOUT -->
-        <!-- ================================================= -->
-
-        <button
-                class="logout-btn"
-                onclick="logout()">
-
-            <span>
-                ⇥
-            </span>
-
-            Logout
-
+        <button class="logout-btn" onclick="logout()">
+            <span>⇥</span> Logout
         </button>
 
     </aside>
@@ -174,79 +82,31 @@
     <!-- ================================================= -->
     <!-- MAIN CHAT -->
     <!-- ================================================= -->
-
     <main class="chat-area">
 
-
-        <!-- ================================================= -->
         <!-- CHAT HEADER -->
-        <!-- ================================================= -->
-
         <header class="chat-header">
-
             <div class="room-title">
-
-                <div class="room-icon">
-                    #
-                </div>
-
+                <div class="room-icon">#</div>
                 <div>
-
-                    <h2 id="currentRoom">
-                        Select a room
-                    </h2>
-
-                    <span id="connectionStatus">
-                        ● Connecting...
-                    </span>
-
+                    <h2 id="currentRoom">Select a room</h2>
+                    <span id="connectionStatus">● Connecting...</span>
                 </div>
-
             </div>
-
-
-            <!-- HEADER ACTION -->
 
             <div class="header-actions">
-
-                <button
-                        onclick="loadRooms()"
-                        title="Refresh rooms">
-
-                    ⟳
-
-                </button>
-
+                <button onclick="loadRooms()" title="Refresh rooms">⟳</button>
             </div>
-
         </header>
 
 
-        <!-- ================================================= -->
         <!-- MESSAGES -->
-        <!-- ================================================= -->
-
-        <section
-                id="messages"
-                class="messages">
-
+        <section id="messages" class="messages">
             <div class="welcome">
-
-                <div class="welcome-icon">
-                    💬
-                </div>
-
-                <h2>
-                    Welcome to Friends Chat
-                </h2>
-
-                <p>
-                    Select a private room and start chatting
-                    in real-time.
-                </p>
-
+                <div class="welcome-icon">💬</div>
+                <h2>Welcome to Friends Chat</h2>
+                <p>Select a private room and start chatting in real-time.</p>
             </div>
-
         </section>
 
 
@@ -258,33 +118,64 @@
 
             <div class="message-box">
 
+                <!-- Hidden File Input -->
+                <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                        style="display: none;"
+                        onchange="sendImage()">
+
+                <!-- Attachment Button -->
+                <button
+                        onclick="document.getElementById('imageInput').click()"
+                        class="attach-btn"
+                        style="background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 4px;"
+                        title="Attach Image">
+                    📎
+                </button>
+
+                <!-- Emoji Button & Popup -->
+                <div style="position: relative; display: flex; align-items: center;">
+                    <button
+                            id="emojiBtn"
+                            onclick="toggleEmojiPicker()"
+                            title="Select Emoji"
+                            style="background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0 4px;">
+                        😊
+                    </button>
+
+                    <!-- Emoji Popup Box -->
+                    <div id="emojiPicker" style="display: none; position: absolute; bottom: 45px; left: 0; background: #1f2937; border: 1px solid #374151; padding: 8px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); z-index: 100;">
+                        <span onclick="insertEmoji('👍')" style="cursor: pointer; padding: 4px; font-size: 1.2rem;">👍</span>
+                        <span onclick="insertEmoji('❤️')" style="cursor: pointer; padding: 4px; font-size: 1.2rem;">❤️</span>
+                        <span onclick="insertEmoji('😂')" style="cursor: pointer; padding: 4px; font-size: 1.2rem;">😂</span>
+                        <span onclick="insertEmoji('🔥')" style="cursor: pointer; padding: 4px; font-size: 1.2rem;">🔥</span>
+                        <span onclick="insertEmoji('🎉')" style="cursor: pointer; padding: 4px; font-size: 1.2rem;">🎉</span>
+                        <span onclick="insertEmoji('✨')" style="cursor: pointer; padding: 4px; font-size: 1.2rem;">✨</span>
+                    </div>
+                </div>
+
+                <!-- Text Input -->
                 <input
                         type="text"
                         id="messageInput"
-                        placeholder="Type your message..."
+                        placeholder="Type a message..."
                         autocomplete="off"
                         onkeydown="handleEnter(event)">
 
-
+                <!-- Send Button -->
                 <button
                         onclick="sendMessage()"
                         class="send-btn">
-
-                    <span>
-                        Send
-                    </span>
-
+                    <span>Send</span>
                     ➤
-
                 </button>
 
             </div>
 
-
             <p class="encryption-text">
-
                 🔒 Messages are transmitted securely
-
             </p>
 
         </footer>
@@ -293,22 +184,12 @@
 
 </div>
 
-
-<!-- ================================================= -->
 <!-- WEBSOCKET LIBRARIES -->
-<!-- ================================================= -->
-
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
 
-
-<!-- ================================================= -->
 <!-- APPLICATION JS -->
-<!-- ================================================= -->
-
 <script src="app.js"></script>
 
 </body>
-
 </html>

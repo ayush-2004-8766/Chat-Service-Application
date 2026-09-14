@@ -8,6 +8,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketTransportRegistration;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -36,5 +37,13 @@ public class WebSocketConfig
         registry.addEndpoint("/ws")
                 .setAllowedOriginPatterns("*")
                 .withSockJS();
+    }
+
+    @Override
+    public void configureWebSocketTransport(WebSocketTransportRegistration registration) {
+        // Limit ko badhakar 5MB (5 * 1024 * 1024) kar diya hai
+        registration.setMessageSizeLimit(5 * 1024 * 1024);
+        registration.setSendBufferSizeLimit(5 * 1024 * 1024);
+        registration.setSendTimeLimit(20000); // Timeout limit bhi badha di
     }
 }
